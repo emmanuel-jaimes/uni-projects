@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WordleController">
+   <children>
+      <GridPane fx:id="grid" hgap="20.0" prefHeight="400.0" prefWidth="600.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="500.0" fitWidth="619.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@/background.png" />
+               </image>
+               <effect>
+                  <Blend opacity="0.84" />
+               </effect>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="261.0" text="Wordle" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="AccanthisADFStdNo2-Regular" size="34.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="r1c1" onInputMethodTextChanged="#activateNextColumn" prefHeight="40.0" prefWidth="52.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextArea fx:id="r1c2" editable="false" onInputMethodTextChanged="#activateNextColumn" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextArea fx:id="r1c3" editable="false" onInputMethodTextChanged="#activateNextColumn" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextArea fx:id="r1c5" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextArea fx:id="r6c4" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <TextArea fx:id="r2c1" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextArea fx:id="r2c2" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextArea fx:id="r2c3" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextArea fx:id="r2c5" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <TextArea fx:id="r5c4" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <TextArea fx:id="r3c1" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextArea fx:id="r4c1" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextArea fx:id="r5c1" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextArea fx:id="r6c1" editable="false" prefHeight="61.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextArea fx:id="r3c2" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextArea fx:id="r3c3" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextArea fx:id="r3c5" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <TextArea fx:id="r3c4" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextArea fx:id="r4c2" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextArea fx:id="r4c3" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextArea fx:id="r4c5" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <TextArea fx:id="r1c4" editable="false" onInputMethodTextChanged="#activateNextColumn" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextArea fx:id="r5c2" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextArea fx:id="r6c2" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <TextArea fx:id="r5c3" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <TextArea fx:id="r6c3" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <TextArea fx:id="r5c5" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <TextArea fx:id="r2c4" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextArea fx:id="r6c5" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <TextArea fx:id="r4c4" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button fx:id="submitGuessButton" mnemonicParsing="false" onMouseClicked="#submitGuess" prefHeight="25.0" prefWidth="163.0" text="Submit Guess" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ruleButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showRule" text="Rule" GridPane.halignment="CENTER" />
+            <Button fx:id="leaderboardButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#showLeaderboard" text="Leaderboard" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Button>
+            <TextField fx:id="wordGuess" onKeyPressed="#putInBox" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+            <Button fx:id="statsButton" mnemonicParsing="false" onAction="#showStats" text="Stats" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="timerTextField" disable="true" editable="false" prefHeight="0.0" prefWidth="247.0" GridPane.columnIndex="5" GridPane.columnSpan="2" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
