@@ -5,10 +5,12 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.awt.BorderLayout;
 import java.util.Arrays;
+import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
+import javax.xml.crypto.Data;
 
 /**
  *  Server class that manipulates a Linked List based on commands communicated from Client Server
@@ -27,6 +29,8 @@ public class Server extends JFrame
      * initialize linked list for interaction with client server
      */
     private final List list = new List();
+    private int count = 0;
+    private HashMap<Boolean, Integer> packetStat = new HashMap<>();
 
     /**
      *  constructor for Server initializes components to display connection for the server and communication to the client
@@ -80,12 +84,15 @@ public class Server extends JFrame
                     //have prompt loop for client
                     displayMessage("\nWaiting to Receive: \n");
                     socket.receive(receivePacket);
+                    count++;
+                    packetStat.put(true, count);
                     received = new String(receivePacket.getData(), 0 , receivePacket.getLength());
                     displayMessage("\n message received: " + received);
                     receiveInformation = received.split(" ");
                     displayMessage("\n received information: " + Arrays.toString(receiveInformation));
                     process = receiveInformation[0];
                     displayMessage("\n process: " + process);
+                    displayMessage("\nReceived ID: " + count);
 
                     if (process.equals("1") || process.equals("display"))
                     {
@@ -139,20 +146,21 @@ public class Server extends JFrame
                         sendPacketToClient(errPacket);
                         displayMessage("\n in unknown case");
                     }
+
                 }
                 while ( !process.equals("exit") );
 
 
-                    displayMessage("\n exited loop");
-                    String closeSocket = "Server Closed and Exited. . .";
-                    byte[] closeData;
-                    closeData = closeSocket.getBytes();
+                displayMessage("\n exited loop");
+                String closeSocket = "Server Closed and Exited. . .";
+                byte[] closeData;
+                closeData = closeSocket.getBytes();
 
-                    DatagramPacket closeServer = new DatagramPacket(closeData, closeData.length);
-                    displayMessage("\nServer Closed and Exited. . .");
+                DatagramPacket closeServer = new DatagramPacket(closeData, closeData.length);
+                displayMessage("\nServer Closed and Exited. . .");
 
-                    sendPacketToClient(closeServer);
-                    socket.close();
+                sendPacketToClient(closeServer);
+                socket.close();
             }
             catch (IOException ioException)
             {
@@ -179,6 +187,20 @@ public class Server extends JFrame
 
         socket.send(sendPacket); // send packet to client
         displayMessage("Packet sent\n");
+    }
+
+    private void sendAck()
+        throws IOException
+    {
+        displayMessage("\nACK");
+        String ack = "ACK " + String.valueOf(count);
+        byte[] closeData;
+        closeData = ack.getBytes();
+
+        DatagramPacket ackPacket = new DatagramPacket(closeData, closeData.length);
+        displayMessage("\nACK sent");
+
+        sendPacketToClient(ackPacket);
     }
 
     /**
@@ -219,8 +241,8 @@ public class Server extends JFrame
 
         //displayed to server window
         displayMessage("\n Completed list insertion" +
-                            "\n Object Inserted: " + obj +
-                            "\n Index Inserted: " + index);
+                "\n Object Inserted: " + obj +
+                "\n Index Inserted: " + index);
     }
 
     /**
@@ -239,7 +261,7 @@ public class Server extends JFrame
 
         //display message to server window
         displayMessage("\n Complete list removal"
-                            + "\n Object Removed: " + removed);
+                + "\n Object Removed: " + removed);
     }
 
     /**

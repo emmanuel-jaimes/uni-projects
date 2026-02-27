@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseChange/BaseChange.iml" filepath="$PROJECT_DIR$/BaseChange/BaseChange.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BaseConversionGUI/BaseConversionGUI.iml" filepath="$PROJECT_DIR$/BaseConversionGUI/BaseConversionGUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedListNetwork/LinkedListNetwork.iml" filepath="$PROJECT_DIR$/LinkedListNetwork/LinkedListNetwork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PostFixEvaluation/PostFixEvaluation.iml" filepath="$PROJECT_DIR$/PostFixEvaluation/PostFixEvaluation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QuizGUI_JFX/QuizGUI_JFX.iml" filepath="$PROJECT_DIR$/QuizGUI_JFX/QuizGUI_JFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RecursivelySearchList/RecursivelySearchList.iml" filepath="$PROJECT_DIR$/RecursivelySearchList/RecursivelySearchList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WordleRemix/WordleRemix.iml" filepath="$PROJECT_DIR$/WordleRemix/WordleRemix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AnimalZoo/src/main/main.iml" filepath="$PROJECT_DIR$/AnimalZoo/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AnimalZoo/src/test/test.iml" filepath="$PROJECT_DIR$/AnimalZoo/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/uni-projects.iml" filepath="$PROJECT_DIR$/.idea/uni-projects.iml" />
+    </modules>
+  </component>
+</project>

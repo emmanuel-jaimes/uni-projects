@@ -7,6 +7,7 @@ import java.net.SocketException;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import javax.swing.*;
 
 /**
@@ -34,6 +35,9 @@ public class Client extends JFrame
      * initialize component to display communication between Server/Client
      */
     private final JTextArea displayArea;
+    private int count = 0;
+    private HashMap<Boolean, Integer> packetStat = new HashMap<>();
+    private HashMap<Boolean, Integer> packetSent = new HashMap<>();
 
     /**
      * Client constructor that initializes components and enables communication between Server and Client
@@ -68,9 +72,11 @@ public class Client extends JFrame
 
                             //create sendPacket
                             DatagramPacket sendPacket = new DatagramPacket(data,
-                                        data.length, InetAddress.getLocalHost(), 23596);
+                                    data.length, InetAddress.getLocalHost(), 23596);
 
                             socket.send(sendPacket);
+                            count++;
+                            packetSent.put(true, count);
                             displayArea.append("Packet sent \n");
                             displayArea.setCaretPosition(
                                     displayArea.getText().length());
