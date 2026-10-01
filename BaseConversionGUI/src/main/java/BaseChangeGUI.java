@@ -74,9 +74,9 @@ public class BaseChangeGUI extends JFrame
 
         //initialize text fields
         swapButton = new JButton("Swap Bases"); //swap button
-        bcPanel.setLayout(new GridLayout(1, 1));    //panel for base conversion area
-        inputNumber = new JTextField("Enter Number Here");
-        outputNumber = new JTextField("Result", inputNumber.getText().length());
+        bcPanel.setLayout(new GridLayout(2, 3));    //panel for base conversion area
+        inputNumber = new JTextField("1");
+        outputNumber = new JTextField("product", inputNumber.getText().length());
         outputNumber.setEditable(false);
 
         //comboBox for Base Conversions
@@ -89,14 +89,17 @@ public class BaseChangeGUI extends JFrame
         toBaseComboBox.setSelectedItem(toBaseComboBox.getItemAt(0));
 
         //PANELS
-        titlePanel.add(title);  //Title
-        bcPanel.add(inputNumber); //BaseChange Area
-        bcPanel.add(baseFromLabel);
-        bcPanel.add(baseFromComboBox);
-        bcPanel.add(swapButton);
-        bcPanel.add(toBaseLabel);
-        bcPanel.add(toBaseComboBox);
-        outputPanel.add(outputNumber); //Output Result area
+        titlePanel.add(title);
+
+        bcPanel.add(inputNumber); //0,0
+        bcPanel.add(swapButton); //0,1
+        bcPanel.add(outputNumber); //0,2
+        //bcPanel.add(baseFromLabel, 0);
+        bcPanel.add(baseFromComboBox); //1,0
+        bcPanel.add(new JLabel("")); //1,1
+        bcPanel.add(toBaseComboBox); //1,2
+        //bcPanel.add(toBaseLabel);
+
 
         //add to frame
         this.add(titlePanel, BorderLayout.NORTH);
@@ -152,7 +155,12 @@ public class BaseChangeGUI extends JFrame
      */
     public void swapAction()
     {
-        inputNumber.setText(outputNumber.getText());
+        if (outputNumber.getText().equals("Invalid bases to convert: \n \t Please try different bases.")) {
+            inputNumber.setText(outputNumber.getText());
+        }
+        else {
+            inputNumber.setText("0");
+        }
         Object temp = baseFromComboBox.getSelectedItem();
         baseFromComboBox.setSelectedItem(toBaseComboBox.getSelectedItem());
         toBaseComboBox.setSelectedItem(temp);
@@ -262,6 +270,7 @@ public class BaseChangeGUI extends JFrame
             {
                 String error = "Invalid bases to convert: \n \t Please try different bases.";
                 System.out.println(error);
+
                 return error;
             }
 
